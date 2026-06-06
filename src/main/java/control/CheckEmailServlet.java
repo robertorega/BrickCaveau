@@ -17,7 +17,7 @@ import model.Utente.UtenteDAO;
 
 
 
-@WebServlet("/checkEmail")
+@WebServlet("/checkEmailServlet")
 public class CheckEmailServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private DataSource ds;
