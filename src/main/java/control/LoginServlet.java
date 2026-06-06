@@ -1,14 +1,12 @@
 package control;
 
 import javax.servlet.*;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import model.UtenteBean;
-import model.UtenteDAO;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -17,6 +15,10 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+
+import model.Utente.UtenteBean;
+import model.Utente.UtenteDAO;
+
 
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {

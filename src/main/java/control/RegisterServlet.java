@@ -1,12 +1,10 @@
 package control;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import model.UtenteBean;
-import model.UtenteDAO;
+import javax.servlet.*;
+
+import javax.servlet.http.HttpServletRequestWrapper;
+import model.Utente.UtenteBean;
+import model.Utente.UtenteDAO;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -16,8 +14,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
-@WebServlet("/registerServlet")
-public class RegisterServlet extends HttpServlet {
+@javax.servlet.annotation.WebServlet("/registerServlet")
+public class RegisterServlet extends javax.servlet.http.HttpServlet {
     private static final long serialVersionUID = 1L;
     private DataSource ds;
 
@@ -32,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequestWrapper request, HttpServletRequestWrapper response) 
             throws ServletException, IOException {
         
         String nome = request.getParameter("nome");
