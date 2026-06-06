@@ -1,12 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Registrazione - BrickCaveau</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    
+    <script src="${pageContext.request.contextPath}/js/validazione.js" defer></script>
 </head>
 <body>
+    <jsp:include page="/fragments/header.jsp" />
 
+    <main class="registrazione-container">
+        <h2>Crea il tuo account BrickCaveau</h2>
+
+        <form action="${pageContext.request.contextPath}/registerServlet" method="POST" id="formRegistrazione">
+            
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+            <span id="errorNome" style="color: red; font-size: 0.9em;"></span><br>
+
+            <label for="cognome">Cognome:</label>
+            <input type="text" name="cognome" id="cognome" required>
+            <span id="errorCognome" style="color: red; font-size: 0.9em;"></span><br>
+
+            <label for="email">Indirizzo e-mail:</label>
+            <input type="email" name="email" id="email" required>
+            <span id="emailFeedback" style="font-weight: bold; font-size: 0.9em;"></span><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required>
+            <span id="errorPassword" style="color: red; font-size: 0.9em;"></span><br>
+
+            <label for="telefono">Telefono:</label>
+            <input type="text" name="telefono" id="telefono" required>
+            <span id="errorTelefono" style="color: red; font-size: 0.9em;"></span><br>
+
+            <button type="submit" class="btn-primario" id="btnRegistrati">Registrati</button>
+            
+            <p>Hai già un account? <a href="${pageContext.request.contextPath}/login.jsp">Accedi qui</a></p>
+        </form>
+    </main>
+
+    <jsp:include page="/fragments/footer.jsp" />
 </body>
 </html>
