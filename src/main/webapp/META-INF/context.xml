@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+	<Resource name="jdbc/BrickCaveau"
+	auth="Container"
+	type="javax.sql.DataSource"
+	maxTotal="20"
+	maxIdle="10"
+	maxWaitMillis="-1"
+	username="brick_user"
+	password="TSW_Brick2026!"
+	driverClassName="com.mysql.cj.jdbc.Driver"
+	url="jdbc:mysql://127.0.0.1:3306/brickcaveau"/>
+</Context>
