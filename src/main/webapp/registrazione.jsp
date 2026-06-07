@@ -18,32 +18,32 @@
             
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" required>
-            <span id="errorNome" style="color: red; font-size: 0.9em;"></span><br>
+            <span id="errorNome"></span><br>
 
             <label for="cognome">Cognome:</label>
             <input type="text" name="cognome" id="cognome" required>
-            <span id="errorCognome" style="color: red; font-size: 0.9em;"></span><br>
+            <span id="errorCognome"></span><br>
 
             <label for="email">Indirizzo e-mail:</label>
             <input type="email" name="email" id="email" required>
-            <span id="emailFeedback" style="font-weight: bold; font-size: 0.9em;"></span><br>
+            <span id="emailFeedback"></span><br>
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required>
-            <span id="errorPassword" style="color: red; font-size: 0.9em;"></span><br>
+            <span id="errorPassword"></span><br>
 
             <label for="telefono">Telefono:</label>
             <div style="display: flex; gap: 5px;">
                 <%-- Selettore del prefisso (Aggiunto per le tue specifiche) --%>
-                <select id="prefisso" name="prefisso" style="width: 90px; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                <select id="prefisso" name="prefisso">
                     <option value="+39" selected>🇮🇹 +39</option>
                     <option value="+378">🇸🇲 +378</option>
                     <option value="+41">🇨🇭 +41</option>
                     <option value="+1">🇺🇸 +1</option>
                 </select>
-                <input type="text" name="telefono" id="telefono" placeholder="Es. 3331234567" style="flex-grow: 1;" required>
+                <input type="text" name="telefono" id="telefono" placeholder="Es. 3331234567" required>
             </div>
-            <span id="errorTelefono" style="color: red; font-size: 0.9em; display: block; margin-top: 2px;"></span><br>
+            <span id="errorTelefono"></span><br>
 
             <button type="submit" class="btn-primario" id="btnRegistrati">Registrati</button>
             
