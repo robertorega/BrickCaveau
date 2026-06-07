@@ -74,7 +74,7 @@ header {
 	flex-grow: 1;
 }
 
-#errorTelefono {
+.testo-errore {
 	color: red;
 	font-size: 0.9em;
 	display: block;
@@ -88,25 +88,6 @@ header {
 	border: 1px solid #ccc;
 }
 
-#errorPassword {
-	color: red;
-	font-size: 0.9em;
-}
-
-#emailFeedback {
-	font-weight: bold;
-	font-size: 0.9em;
-}
-
-#errorCognome {
-	color: red;
-	font-size: 0.9em;
-}
-
-#errorNome {
-	color: red;
-	font-size: 0.9em;
-}
 
 /* FOOTER */
 

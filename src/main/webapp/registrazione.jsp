@@ -18,11 +18,11 @@
             
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" required>
-            <span id="errorNome"></span><br>
+            <span id="errorNome" class="testo-errore"></span><br>
 
             <label for="cognome">Cognome:</label>
             <input type="text" name="cognome" id="cognome" required>
-            <span id="errorCognome"></span><br>
+            <span id="errorCognome" class="testo-errore"></span><br>
 
             <label for="email">Indirizzo e-mail:</label>
             <input type="email" name="email" id="email" required>
@@ -30,7 +30,7 @@
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required>
-            <span id="errorPassword"></span><br>
+            <span id="errorPassword" class="testo-errore"></span><br>
 
             <label for="telefono">Telefono:</label>
             <div style="display: flex; gap: 5px;">
@@ -43,7 +43,7 @@
                 </select>
                 <input type="text" name="telefono" id="telefono" placeholder="Es. 3331234567" required>
             </div>
-            <span id="errorTelefono"></span><br>
+            <span id="errorTelefono" class="testo-errore"></span><br>
 
             <button type="submit" class="btn-primario" id="btnRegistrati">Registrati</button>
             
