@@ -34,7 +34,6 @@
 
             <label for="telefono">Telefono:</label>
             <div style="display: flex; gap: 5px;">
-                <%-- Selettore del prefisso (Aggiunto per le tue specifiche) --%>
                 <select id="prefisso" name="prefisso">
                     <option value="+39" selected>🇮🇹 +39</option>
                     <option value="+378">🇸🇲 +378</option>
