@@ -49,7 +49,7 @@
 
             <div class="contact-form-box">
                 <h2>Inviaci un Messaggio</h2>
-                <form action="#" method="POST">
+                <form id="contatti" action="#" method="POST">
                     <label for="nome">Nome o Nickname:</label>
                     <input type="text" id="nome" name="nome" placeholder="Es. Emmet Brickowski" required>
 
@@ -57,7 +57,7 @@
                     <input type="email" id="email" name="email" placeholder="La tua e-mail" required>
 
                     <label for="messaggio">Cosa ti serve?</label>
-                    <textarea id="messaggio" name="messaggio" rows="4" placeholder="Cerchi un pezzo raro? Scrivici qui..." required></textarea>
+                    <textarea id="messaggio" name="messaggio" rows="4" placeholder="Cerchi un pezzo raro? Scrivici qui... (max 500 caratteri)" maxlength=500 required></textarea>
 
                     <button type="submit">Invia Richiesta</button>
                 </form>
@@ -74,7 +74,7 @@
         </div>
 
     </main>
-
+	<script src="js/contattoMail.js"></script>
     <jsp:include page="/fragments/footer.jsp" />
 
 </body>
