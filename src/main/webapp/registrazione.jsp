@@ -33,8 +33,17 @@
             <span id="errorPassword" style="color: red; font-size: 0.9em;"></span><br>
 
             <label for="telefono">Telefono:</label>
-            <input type="text" name="telefono" id="telefono" required>
-            <span id="errorTelefono" style="color: red; font-size: 0.9em;"></span><br>
+            <div style="display: flex; gap: 5px;">
+                <%-- Selettore del prefisso (Aggiunto per le tue specifiche) --%>
+                <select id="prefisso" name="prefisso" style="width: 90px; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                    <option value="+39" selected>🇮🇹 +39</option>
+                    <option value="+378">🇸🇲 +378</option>
+                    <option value="+41">🇨🇭 +41</option>
+                    <option value="+1">🇺🇸 +1</option>
+                </select>
+                <input type="text" name="telefono" id="telefono" placeholder="Es. 3331234567" style="flex-grow: 1;" required>
+            </div>
+            <span id="errorTelefono" style="color: red; font-size: 0.9em; display: block; margin-top: 2px;"></span><br>
 
             <button type="submit" class="btn-primario" id="btnRegistrati">Registrati</button>
             
