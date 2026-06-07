@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
         // se l'email era già in uso
-        if (emailFeedback.textContent.includes("Email già registrata")) {
+        if (emailFeedback.textContent.includes("già registrata")) {
             formValido = false;
             if (!primoCampoErrato) primoCampoErrato = emailInput;
         }
