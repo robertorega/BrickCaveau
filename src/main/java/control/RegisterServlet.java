@@ -38,11 +38,17 @@ public class RegisterServlet extends javax.servlet.http.HttpServlet {
         String cognome = request.getParameter("cognome");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String telefono = request.getParameter("telefono");
+        String prefisso = request.getParameter("prefisso");
+        String numero = request.getParameter("telefono");
+        String telefonoCompleto = "";
+
+        if(prefisso != null && numero != null) {
+            telefonoCompleto = prefisso + numero;
+        }
 
         // Controllo lato server (Integrità dati)
-        if (nome == null || cognome == null || email == null || password == null || telefono == null ||
-            nome.trim().isEmpty() || cognome.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty() || telefono.trim().isEmpty()) {
+        if (nome == null || cognome == null || email == null || password == null || numero == null ||
+            nome.trim().isEmpty() || cognome.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty() || numero.trim().isEmpty()) {
             // CORRETTO: punta a registrazione.jsp
             response.sendRedirect(request.getContextPath() + "/registrazione.jsp?error=campivuoti");
             return;
@@ -64,7 +70,7 @@ public class RegisterServlet extends javax.servlet.http.HttpServlet {
             nuovoUtente.setCognome(cognome);
             nuovoUtente.setEmail(email);
             nuovoUtente.setPassword(hashPassword(password)); // Cifratura di sicurezza!
-            nuovoUtente.setTelefono(telefono);
+            nuovoUtente.setTelefono(telefonoCompleto);
             nuovoUtente.set_Admin(false); // Di default ci si registra come normali clienti
 
             // Salvataggio nel DB
