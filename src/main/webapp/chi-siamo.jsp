@@ -43,7 +43,7 @@
                 
                 <div class="team-grid">
                     <div class="team-member">
-                        <h3>Simone Esposito 1</h3>
+                        <h3>Simone Esposito</h3>
                         <p>matr. 0512121391</p>
                     </div>
                     <div class="team-member">
