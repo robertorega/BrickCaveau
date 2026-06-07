@@ -41,8 +41,8 @@
                 <div class="info-item">
                     <h3>✉️ E-mail Direzione</h3>
                     <p>
-                        <a href="mailto:s.esposito176@studenti.unisa.it">s.esposito176@studenti.unisa.it</a>
-                        <a href="mailto:r.rega24@studenti.unisa.it">r.rega24@studenti.unisa.it</a><br>
+                        <a href="mailto:s.esposito176@studenti.unisa.it">s.esposito176@studenti.unisa.it</a><br>
+                        <a href="mailto:r.rega24@studenti.unisa.it">r.rega24@studenti.unisa.it</a>
                     </p>
                 </div>
             </div>
