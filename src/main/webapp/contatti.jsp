@@ -34,15 +34,15 @@
                 <div class="info-item">
                     <h3>📞 Supporto Telefonico</h3>
                     <p>Centralino Dipartimento: <strong>089 966104</strong><br>
-                       <span style="font-size: 0.85em; color: #94A3B8;">(Lun - Ven: 09:00 - 18:00)</span>
+                       <span class="orario-supporto">(Lun - Ven: 09:00 - 18:00)</span>
                     </p>
                 </div>
 
                 <div class="info-item">
                     <h3>✉️ E-mail Direzione</h3>
                     <p>
-                        <a href="mailto:s.esposito176@studenti.unisa.it" style="color: #1976D2;">s.esposito176@studenti.unisa.it</a>
-                        <a href="mailto:r.rega24@studenti.unisa.it" style="color: #1976D2;">r.rega24@studenti.unisa.it</a><br>
+                        <a href="mailto:r.rega24@studenti.unisa.it">r.rega24@studenti.unisa.it</a><br>
+                        <a href="mailto:s.esposito176@studenti.unisa.it">s.esposito176@studenti.unisa.it</a>
                     </p>
                 </div>
             </div>
@@ -65,18 +65,12 @@
 
         </div>
 
-        <div class="contact-header" style="margin-bottom: 20px;">
+        <div class="contact-header map-header">
             <h2>Vieni a trovarci</h2>
         </div>
         
         <div class="map-container">
-            <iframe 
-                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=it&amp;q=Dipartimento%20di%20Informatica,%20Universit%C3%A0%20di%20Salerno,%20Fisciano&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                frameborder="0" 
-                scrolling="no" 
-                marginheight="0" 
-                marginwidth="0">
-            </iframe>
+            <iframe src="https://maps.google.com/maps?q=Dipartimento%20di%20Informatica%20Universit%C3%A0%20degli%20Studi%20di%20Salerno&t=&z=15&ie=UTF-8&iwloc=&output=embed"></iframe>
         </div>
 
     </main>
