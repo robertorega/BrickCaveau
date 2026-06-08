@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contatti - BrickCaveau</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/contatti.css">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
                 <h2>Inviaci un Messaggio</h2>
                 <form id="contatti" action="#" method="POST">
                     <label for="nome">Nome o Nickname:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Es. Emmet Brickowski" required>
+                    <input type="text" id="nome" name="nome" placeholder="Es. Mario Rossi" required>
 
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" placeholder="La tua e-mail" required>
