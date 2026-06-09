@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
                 
                 // Reindirizzamento in base al ruolo (Requisito Area Admin / Cliente)
                 if (utente.is_Admin()) {
-                    response.sendRedirect(request.getContextPath() + "/admin/dashboard.jsp");
+                    response.sendRedirect(request.getContextPath() + "/admin/dashboardServlet");
                 } else {
                     response.sendRedirect(request.getContextPath() + "/index.jsp"); // Home o Profilo
                 }

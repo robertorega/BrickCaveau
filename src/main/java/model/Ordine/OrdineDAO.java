@@ -100,7 +100,36 @@ public class OrdineDAO {
         }
     }
 
+    public List<OrdineBean> doRetrieveAll(String orderBy) throws SQLException {
+        List<OrdineBean> ordini = new ArrayList<>();
+        
+        
+        String query = "SELECT * FROM Ordine";
+        
 
+        if (orderBy != null && !orderBy.trim().isEmpty()) {
+            // regex base per evitare SQL injection
+            if (orderBy.matches("^[a-zA-Z0-9_ ]+$")) {
+                query += " ORDER BY " + orderBy;
+            }
+        } else {
+            // Ordinamento di default: i più recenti per primi
+            query += " ORDER BY Data_Ordine DESC";
+        }
+
+        // Utilizziamo il PreparedStatement per prevenire le SQL Injection
+        try (Connection con = ds.getConnection();
+             PreparedStatement ps = con.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            
+            while (rs.next()) {
+                ordini.add(mapResultSetToOrdineBean(rs));
+            }
+        }
+        
+        return ordini;
+    }
+    
     public List<OrdineBean> doRetrieveByUtente(int idUtente) throws SQLException {
         List<OrdineBean> ordini = new ArrayList<>();
         String query = "SELECT * FROM Ordine WHERE Utente_ID = ? ORDER BY Data_Ordine DESC";
