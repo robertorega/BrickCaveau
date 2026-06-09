@@ -15,16 +15,28 @@
     <main class="catalogo-layout">
         
         <aside class="sidebar-filtri">
-            <h3>Filtra i Set</h3>
+            <h3>Filtra e Ordina</h3>
             
+            <div class="gruppo-filtro">
+                <label for="ordinamento">Ordina per:</label>
+                <select id="ordinamento" class="select-ordinamento">
+                    <option value="nome-asc">Nome (A - Z)</option>
+                    <option value="nome-desc">Nome (Z - A)</option>
+                    <option value="codice-asc">Codice (Crescente)</option>
+                    <option value="codice-desc">Codice (Decrescente)</option>
+                    <option value="pezzi-asc">Numero Pezzi (Crescente)</option>
+                    <option value="pezzi-desc">Numero Pezzi (Decrescente)</option>
+                </select>
+            </div>
+
             <div class="gruppo-filtro">
                 <label>Temi</label>
                 <div class="checkbox-container">
-                    <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="Harry Potter"> Harry Potter</label>
-                    <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="Star Wars"> Star Wars</label>
                     <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="Agents"> Agents</label>
                     <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="Ghostbusters"> Ghostbusters</label>
+                    <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="Harry Potter"> Harry Potter</label>
                     <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="Indiana Jones"> Indiana Jones</label>
+                    <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="Star Wars"> Star Wars</label>
                     <label class="control-checkbox"><input type="checkbox" class="filtro-tema" value="The Simpsons"> The Simpsons</label>
                 </div>
             </div>
@@ -48,15 +60,16 @@
             <div class="gruppo-filtro">
                 <div class="slider-header">
                     <label for="sliderPezzi">Numero Max Pezzi:</label>
-                    <span id="valorePezzi" class="valore-dinamico">8000</span>
+                    <span id="valorePezzi" class="valore-dinamico">5000</span>
                 </div>
-                <input type="range" id="sliderPezzi" min="0" max="8000" value="8000" step="50">
+                <input type="range" id="sliderPezzi" min="0" max="5000" value="5000" step="50">
             </div>
 
             <button type="button" id="btnReset" class="btn-reset-live">Azzera Filtri</button>
         </aside>
 
         <div class="contenuto-catalogo">
+            
             <h2>Il Caveau: Tutti i Set Disponibili</h2>
 
             <div id="nessun-risultato" style="display: none;" class="messaggio-vuoto">
@@ -75,6 +88,8 @@
                     <div class="grid-catalogo">
                         <c:forEach var="set" items="${listaSet}">
                             <div class="card-prodotto" 
+                                 data-codice="${set.codiceSet}"
+                                 data-nome="${set.nome}"
                                  data-tema="${set.tema}" 
                                  data-anno-uscita="${set.annoUscita}" 
                                  data-anno-ritiro="${set.annoRitiro != null ? set.annoRitiro : 0}" 
