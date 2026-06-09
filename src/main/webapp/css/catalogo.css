@@ -94,3 +94,118 @@
 .btn-secondario:hover {
     background-color: #0F172A;
 }
+
+/* 🔥 NOVITÀ: Layout a due colonne per Sidebar e Catalogo */
+.catalogo-layout {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+/* 🔥 NOVITÀ: Sidebar stile dashboard moderna */
+.sidebar-filtri {
+    flex: 0 0 260px;
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.sidebar-filtri h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #C8102E;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.gruppo-filtro {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gruppo-filtro label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.gruppo-filtro input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 🔥 NOVITÀ: Slider Orizzontale Customizzato */
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 🔥 NOVITÀ: Stile unico per tutti i numeretti sopra i 3 slider */
+.valore-dinamico {
+    background-color: #F1F5F9;
+    color: #C8102E;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border: 1px solid #E2E8F0;
+    min-width: 40px;
+    text-align: center;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+    accent-color: #C8102E; /* Colora lo slider di rosso nei browser moderni */
+    cursor: pointer;
+}
+
+.btn-reset-live {
+    width: 100%;
+    padding: 10px;
+    background-color: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-reset-live:hover {
+    background-color: #E2E8F0;
+}
+
+.contenuto-catalogo {
+    flex: 1; /* Prende lo spazio rimanente a destra */
+}
+
+.messaggio-vuoto {
+    text-align: center;
+    padding: 40px;
+    background-color: #F8F9FA;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+}
+
+/* Responsività: Su smartphone la sidebar va sopra i prodotti */
+@media (max-width: 768px) {
+    .catalogo-layout {
+        flex-direction: column;
+    }
+    .sidebar-filtri {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
