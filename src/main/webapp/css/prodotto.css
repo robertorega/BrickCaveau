@@ -1,0 +1,133 @@
+@charset "UTF-8";
+@import "style.css";
+
+/* =========================================
+   PAGINA SINGOLO PRODOTTO
+   ========================================= */
+
+.prodotto-container {
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.prodotto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .prodotto-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Colonna Immagini */
+.prodotto-galleria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-principale {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.miniature-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.miniature-container img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border 0.3s;
+}
+
+.miniature-container img:hover {
+    border: 2px solid #C8102E;
+}
+
+/* Colonna Info */
+.prodotto-info h2 {
+    color: #0F172A;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.prodotto-info .tema {
+    color: #64748B;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 10px;
+}
+
+.prodotto-info .prezzo {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #C8102E;
+    margin-bottom: 20px;
+}
+
+.specifiche {
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+/* Form Carrello */
+.form-carrello {
+    background-color: #F8F9FA;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #F2A900;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-carrello input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-primario {
+    background-color: #C8102E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primario:hover {
+    background-color: #A00D24;
+}
+
+/* Recensioni */
+.recensioni-container {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #E2E8F0;
+}
