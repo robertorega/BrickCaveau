@@ -1,35 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 🔥 NOVITÀ 1: Catturiamo i 3 SLIDER e i loro TESTI
+    // 1. CATTURA TUTTI GLI ELEMENTI HTML
     const checkboxesTema = document.querySelectorAll(".filtro-tema");
-    
     const sliderUscita = document.getElementById("sliderUscita");
     const spanValoreUscita = document.getElementById("valoreUscita");
-    
     const sliderRitiro = document.getElementById("sliderRitiro");
     const spanValoreRitiro = document.getElementById("valoreRitiro");
-    
     const sliderPezzi = document.getElementById("sliderPezzi");
     const spanValorePezzi = document.getElementById("valorePezzi");
+    
+    // Elementi per Ordinamento
+    const selectOrdinamento = document.getElementById("ordinamento");
+    const grigliaCatalogo = document.querySelector(".grid-catalogo");
     
     const btnReset = document.getElementById("btnReset");
     const cards = document.querySelectorAll(".card-prodotto");
     const boxNessunRisultato = document.getElementById("nessun-risultato");
 
+    // 2. FUNZIONE DI FILTRAGGIO LIVE (Mostra/Nascondi)
     function applicaFiltri() {
-        // Estraiamo i dati
         const temiSelezionati = Array.from(checkboxesTema).filter(cb => cb.checked).map(cb => cb.value);
-        
-        // 🔥 NOVITÀ 2: Lettura dei 3 slider in real-time
         const minUscitaVal = parseInt(sliderUscita.value);
         const maxRitiroVal = parseInt(sliderRitiro.value);
         const maxPezziVal = parseInt(sliderPezzi.value);
         
-        // Aggiorna i testi rossi a schermo
         spanValoreUscita.textContent = minUscitaVal;
         spanValorePezzi.textContent = maxPezziVal;
         
-        // Se lo slider ritiro è al massimo (2026), scriviamo "Tutti" per far capire che fa passare tutto
         if (maxRitiroVal === 2026) {
             spanValoreRitiro.textContent = "Tutti";
         } else {
@@ -44,14 +41,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const cardAnnoRitiro = parseInt(card.getAttribute("data-anno-ritiro"));
             const cardPezzi = parseInt(card.getAttribute("data-pezzi"));
 
-            // CONDIZIONI DI FILTRAGGIO
             const matchTema = temiSelezionati.length === 0 || temiSelezionati.includes(cardTema);
-            
-            // 🔥 NOVITÀ 3: Logica matematica anni
-            // L'anno di uscita del set deve essere MAGGIORE o UGUALE allo slider
             const matchAnnoUscita = cardAnnoUscita >= minUscitaVal;
             
-            // Logica Ritiro: Se è a 2026 passa tutto. Altrimenti passa solo se è stato ritirato ( > 0) PRIMA o DURANTE l'anno selezionato.
             let matchAnnoRitiro = false;
             if (maxRitiroVal === 2026) {
                 matchAnnoRitiro = true; 
@@ -61,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const matchPezzi = cardPezzi <= maxPezziVal;
 
-            // Se passa tutti i test, si vede!
             if (matchTema && matchAnnoUscita && matchAnnoRitiro && matchPezzi) {
                 card.style.display = "flex";
                 prodottiVisibili++;
@@ -70,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // Mostra il div di errore se non c'è nessun match
         if (prodottiVisibili === 0) {
             boxNessunRisultato.style.display = "block";
         } else {
@@ -78,18 +68,63 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // 🔥 NOVITÀ 4: Agganciamo l'ascolto ai nuovi slider
+    // 3. FUNZIONE DI ORDINAMENTO MAGIC
+    function ordinaCards() {
+        // Se per caso la griglia non c'è (es. database vuoto), ferma tutto
+        if (!grigliaCatalogo) return; 
+
+        // Creiamo un array con tutte le card visibili o invisibili
+        let cardsArray = Array.from(grigliaCatalogo.querySelectorAll('.card-prodotto'));
+        const criterio = selectOrdinamento.value;
+
+        // Ordiniamo l'array
+        cardsArray.sort((a, b) => {
+            if (criterio === 'nome-asc') {
+                return a.dataset.nome.localeCompare(b.dataset.nome);
+            } else if (criterio === 'nome-desc') {
+                return b.dataset.nome.localeCompare(a.dataset.nome);
+            } else if (criterio === 'codice-asc') {
+                return parseInt(a.dataset.codice) - parseInt(b.dataset.codice);
+            } else if (criterio === 'codice-desc') {
+                return parseInt(b.dataset.codice) - parseInt(a.dataset.codice);
+            } else if (criterio === 'pezzi-asc') {
+                return parseInt(a.dataset.pezzi) - parseInt(b.dataset.pezzi);
+            } else if (criterio === 'pezzi-desc') {
+                return parseInt(b.dataset.pezzi) - parseInt(a.dataset.pezzi);
+            }
+            return 0;
+        });
+
+        // Svuotiamo la griglia e ri-appendiamo le card ordinate
+        grigliaCatalogo.innerHTML = '';
+        cardsArray.forEach(card => grigliaCatalogo.appendChild(card));
+    }
+
+
+    // 4. EVENT LISTENERS (Quelli che fanno scattare le funzioni)
     checkboxesTema.forEach(cb => cb.addEventListener("change", applicaFiltri));
     sliderUscita.addEventListener("input", applicaFiltri);
     sliderRitiro.addEventListener("input", applicaFiltri);
     sliderPezzi.addEventListener("input", applicaFiltri);
+    
+    // Quando l'utente cambia opzione nella tendina, ordina le card
+    if(selectOrdinamento) {
+        selectOrdinamento.addEventListener("change", ordinaCards);
+    }
 
-    // Reset Totale
-    btnReset.addEventListener("click", function() {
-        checkboxesTema.forEach(cb => cb.checked = false);
-        sliderUscita.value = 2000;
-        sliderRitiro.value = 2026;
-        sliderPezzi.value = 8000;
-        applicaFiltri();
-    });
+    // Tasto "Azzera Filtri"
+    if (btnReset) {
+        btnReset.addEventListener("click", function() {
+            checkboxesTema.forEach(cb => cb.checked = false);
+            sliderUscita.value = 2000;
+            sliderRitiro.value = 2026;
+            sliderPezzi.value = 5000; // Torna a 5000
+            selectOrdinamento.value = "nome-asc"; // Torna all'ordinamento di default
+            applicaFiltri();
+            ordinaCards();
+        });
+    }
+
+    // APPENA CARICA LA PAGINA: Mette i prodotti in ordine alfabetico (Nome A-Z)
+    ordinaCards();
 });
