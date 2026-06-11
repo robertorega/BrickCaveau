@@ -44,30 +44,30 @@
                             </tr>
                         </thead>
                         <tbody> <%-- prodotto servlet --%>
-                            <c:forEach var="set" items="${listaProdottiAdmin}">
-                                <tr>
-                                    <td>#${set.idSet}</td>
-                                    <td>${set.nome}</td>
-                                    <td>€ ${set.prezzo}</td>
-                                    <td>${set.numeroPezzi}</td>
-                                    <td class="azioni-tabella">
-                                        <a href="${pageContext.request.contextPath}/admin/ModificaProdottoServlet?id=${set.idSet}" class="btn-azione btn-modifica">Modifica</a>
-                                        
-                                        <form action="${pageContext.request.contextPath}/admin/EliminaProdottoServlet" method="POST" class="form-elimina" 
-                                              onsubmit="return confirm('ATTENZIONE: Sei sicuro di voler cancellare il set ${set.nome} dal catalogo? Questa azione è irreversibile!');">
-                                            <input type="hidden" name="idSet" value="${set.idSet}">
-                                            <button type="submit" class="btn-azione btn-elimina">Elimina</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            <%-- fallback se catalogo è vuoto --%>
-                            <c:if test="${empty listaProdottiAdmin}">
-                                <tr>
-                                    <td colspan="5" style="text-align:center; padding:20px;">Nessun prodotto trovato.</td>
-                                </tr>
-                            </c:if>
-                        </tbody>
+    						<c:forEach var="set" items="${listaProdottiAdmin}">
+						        <tr>
+						            <td>#${set.codiceSet}</td>
+						            <td>${set.nome}</td>
+						            <td>€ ${set.prezzo}</td>
+						            <td>${set.nPezzi}</td>
+						            <td class="azioni-tabella">
+						                <a href="${pageContext.request.contextPath}/admin/ModificaProdottoServlet?id=${set.codiceSet}" class="btn-azione btn-modifica">Modifica</a>
+						                
+						                <form action="${pageContext.request.contextPath}/admin/EliminaProdottoServlet" method="POST" class="form-elimina" 
+						                      onsubmit="return confirm('ATTENZIONE: Sei sicuro di voler cancellare il set ${set.nome} dal catalogo? Questa azione è irreversibile!');">
+						                    <input type="hidden" name="idSet" value="${set.codiceSet}">
+						                    <button type="submit" class="btn-azione btn-elimina">Elimina</button>
+						                </form>
+						            </td>
+						        </tr>
+						    </c:forEach>
+						    <%-- fallback se catalogo è vuoto --%>
+						    <c:if test="${empty listaProdottiAdmin}">
+						        <tr>
+						            <td colspan="5" style="text-align:center; padding:20px;">Nessun prodotto trovato.</td>
+						        </tr>
+						    </c:if>
+						</tbody>
                     </table>
                 </div>
             </section>
@@ -107,25 +107,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%-- lista degli ordini --%>
-                            <c:forEach var="ordine" items="${listaOrdiniAdmin}">
-                                <tr>
-                                    <td>#${ordine.idOrdine}</td>
-                                    <td>${ordine.dataOrdine}</td>
-                                    <td>${ordine.utenteEmail}</td>
-                                    <td>€ ${ordine.totale}</td>
-                                    <td>
-                                        <a href="${pageContext.request.contextPath}/admin/DettaglioOrdineAdminServlet?id=${ordine.idOrdine}" class="btn-azione btn-modifica">Vedi Dettagli</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            <%-- fallback --%>
-                            <c:if test="${empty listaOrdiniAdmin}">
-                                <tr>
-                                    <td colspan="5" style="text-align:center; padding:20px;">Nessun ordine trovato con i filtri attuali.</td>
-                                </tr>
-                            </c:if>
-                        </tbody>
+						    <%-- lista degli ordini --%>
+						    <c:forEach var="ordine" items="${listaOrdiniAdmin}">
+						        <tr>
+						            <td>#${ordine.id}</td>
+						            <td>${ordine.dataOrdine}</td>
+						            <td>${ordine.utenteEmail}</td>
+						            <td>€ ${ordine.totale}</td>
+						            <td>
+						                <a href="${pageContext.request.contextPath}/admin/DettaglioOrdineAdminServlet?id=${ordine.id}" class="btn-azione btn-modifica">Vedi Dettagli</a>
+						            </td>
+						        </tr>
+						    </c:forEach>
+						    <%-- fallback --%>
+						    <c:if test="${empty listaOrdiniAdmin}">
+						        <tr>
+						            <td colspan="5" style="text-align:center; padding:20px;">Nessun ordine trovato con i filtri attuali.</td>
+						        </tr>
+						    </c:if>
+						</tbody>
                     </table>
                 </div>
             </section>

@@ -20,7 +20,7 @@ import model.SetLego.SetLegoDAO;
 import model.Ordine.OrdineBean;
 import model.Ordine.OrdineDAO;
 
-@WebServlet("/webapp/admin/dashboardServlet") //filter per admin
+@WebServlet("/admin/dashboardServlet") //filter per admin
 public class DashboardServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private DataSource ds;
