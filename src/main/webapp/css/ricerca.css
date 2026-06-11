@@ -1,0 +1,105 @@
+@charset "UTF-8";
+@import "style.css";
+
+.search-container {
+    position: relative;
+    width: 300px; /* Puoi allargarla o stringerla come preferisci */
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #CBD5E1;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 0 2px rgba(200, 16, 46, 0.3); /* Effetto glow rosso BrickCaveau */
+    border-color: #C8102E;
+}
+
+/* La tendina fluttuante dei risultati */
+.resultBox {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    margin-top: 5px;
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Layout Flexbox per allineare immagine e testi */
+.suggestion-item {
+    display: flex;
+    align-items: center; /* Centra l'immagine verticalmente rispetto ai testi */
+    padding: 10px 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #F1F5F9;
+    transition: background-color 0.2s;
+    gap: 15px; /* Spazio tra l'immagine e le scritte */
+}
+
+/* Rimuovi il bordo dall'ultimo elemento */
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+/* Stile dell'immagine in miniatura */
+.suggestion-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain; /* Evita che l'immagine del lego si deformi */
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+/* Contenitore per i due testi (li mette in colonna) */
+.suggestion-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Stile del Titolo */
+.suggestion-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0F172A;
+    transition: color 0.2s;
+}
+
+/* Stile del Codice (Piccolo e grigio) */
+.suggestion-code {
+    font-size: 0.75rem;
+    color: #64748B;
+    margin-top: 3px;
+}
+
+/* Effetto Hover (quando ci passi sopra col mouse) */
+.suggestion-item:hover {
+    background-color: #F8FAFC;
+}
+
+/* Il titolo diventa rosso quando passi sopra a tutta la riga */
+.suggestion-item:hover .suggestion-title {
+    color: #C8102E; 
+}
+
+/* Nessun risultato */
+.no-result {
+    padding: 12px 15px;
+    color: #64748B;
+    font-style: italic;
+    font-size: 0.9rem;
+}
