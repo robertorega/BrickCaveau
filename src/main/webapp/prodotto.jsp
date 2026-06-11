@@ -78,7 +78,13 @@
 
                 <div class="recensioni-container">
                     <h3>Recensioni dei clienti</h3>
-                    <p><em>Presto potrai leggere le recensioni dei nostri collezionisti.</em></p>
+                    	<c:forEach var="rec" items="${listaRecensioni}">
+						    <div class="recensione">
+						        <p>Voto: ${rec.rating}</p>
+						        <p>Commento: ${rec.testo}</p>
+						        <p>Utente: ${rec.nomeUtente}</p>
+						    </div>
+						</c:forEach>
                 </div>
 
             </c:when>

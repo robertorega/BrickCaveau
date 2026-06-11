@@ -2,6 +2,8 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -15,6 +17,8 @@ import javax.sql.DataSource;
 
 import model.SetLego.SetLegoBean;
 import model.SetLego.SetLegoDAO;
+import model.Recensione.RecensioneBean;
+import model.Recensione.RecensioneDAO;
 
 @WebServlet("/ProdottoServlet")
 public class ProdottoServlet extends HttpServlet {
@@ -44,8 +48,13 @@ public class ProdottoServlet extends HttpServlet {
             // Richiamo il metodo esatto che ho letto nel tuo DAO!
             SetLegoBean prodotto = setDAO.doRetrieveByKey(idSet);
             
-            // Metto il bean nella request
+            // recupero tutte le recensioni associate al prodotto
+            RecensioneDAO recensioneDAO = new RecensioneDAO(ds);
+            List<RecensioneBean> recensioni = recensioneDAO.doRetrieveBySetLego(idSet);
+            
+            // Metto il bean del prodotto e la lista delle recensioni nella request
             request.setAttribute("prodotto", prodotto);
+            request.setAttribute("listaRecensioni", recensioni);
             
             // Mando alla pagina JSP corretta
             RequestDispatcher dispatcher = request.getRequestDispatcher("/prodotto.jsp");
