@@ -114,7 +114,7 @@ public class OrdineDAO {
             }
         } else {
             // Ordinamento di default: i più recenti per primi
-            query += " ORDER BY Data_Ordine DESC";
+            query += " ORDER BY Data_Acquisto DESC";
         }
 
         // Utilizziamo il PreparedStatement per prevenire le SQL Injection
@@ -132,7 +132,7 @@ public class OrdineDAO {
     
     public List<OrdineBean> doRetrieveByUtente(int idUtente) throws SQLException {
         List<OrdineBean> ordini = new ArrayList<>();
-        String query = "SELECT * FROM Ordine WHERE Utente_ID = ? ORDER BY Data_Ordine DESC";
+        String query = "SELECT * FROM Ordine WHERE Utente_ID = ? ORDER BY Data_Acquisto DESC";
 
         try (Connection con = ds.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
@@ -151,11 +151,11 @@ public class OrdineDAO {
         List<OrdineBean> ordini = new ArrayList<>();
         StringBuilder query = new StringBuilder("SELECT * FROM Ordine WHERE 1=1");
         
-        if (dataInizio != null && !dataInizio.isEmpty()) query.append(" AND Data_Ordine >= ?");
-        if (dataFine != null && !dataFine.isEmpty()) query.append(" AND Data_Ordine <= ?");
+        if (dataInizio != null && !dataInizio.isEmpty()) query.append(" AND Data_Acquisto >= ?");
+        if (dataFine != null && !dataFine.isEmpty()) query.append(" AND Data_Acquisto <= ?");
         if (idUtente != null) query.append(" AND Utente_ID = ?");
         
-        query.append(" ORDER BY Data_Ordine DESC");
+        query.append(" ORDER BY Data_Acquisto DESC");
 
         try (Connection con = ds.getConnection();
              PreparedStatement ps = con.prepareStatement(query.toString())) {
@@ -177,7 +177,7 @@ public class OrdineDAO {
     private OrdineBean mapResultSetToOrdineBean(ResultSet rs) throws SQLException {
         OrdineBean bean = new OrdineBean();
         bean.setId(rs.getInt("ID"));
-        bean.setDataOrdine(rs.getDate("Data_Ordine"));
+        bean.setDataOrdine(rs.getDate("Data_Acquisto"));
         bean.setTotale(rs.getDouble("Totale"));
         bean.setUtenteId(rs.getInt("Utente_ID"));
         bean.setIndirizzoId((Integer) rs.getObject("Indirizzo_ID"));

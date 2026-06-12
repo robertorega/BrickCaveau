@@ -27,7 +27,7 @@
 			        <a href="${pageContext.request.contextPath}/LogoutServlet" class="icona">Esci</a>
 			    </c:when>
                 <c:when test="${not empty sessionScope.utente}">
-                    <a href="${pageContext.request.contextPath}/profilo.jsp" class="icona">Profilo</a>
+                    <a href="${pageContext.request.contextPath}/ProfiloServlet" class="icona">Profilo</a>
                     <a href="${pageContext.request.contextPath}/LogoutServlet" class="icona">Esci</a>
                 </c:when>
                 <c:otherwise>
