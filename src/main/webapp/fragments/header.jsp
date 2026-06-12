@@ -22,6 +22,9 @@
         <div class="user-interaction">
             <%-- Controllo dinamico della sessione --%>
             <c:choose>
+            	<c:when test="${not empty sessionScope.utente and sessionScope.utente.is_Admin()}">
+			        <a href="${pageContext.request.contextPath}/admin/dashboardServlet" class="icona">Dashboard Admin</a>
+			    </c:when>
                 <c:when test="${not empty sessionScope.utente}">
                     <a href="${pageContext.request.contextPath}/profilo.jsp" class="icona">Profilo</a>
                 </c:when>
