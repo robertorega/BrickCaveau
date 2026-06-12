@@ -99,6 +99,10 @@ footer {
 	margin-top: 40px;
 }
 
+.footer-link li{
+	padding-top: 10px;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 768px) {
