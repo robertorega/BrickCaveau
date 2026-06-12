@@ -3,6 +3,7 @@ package control;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Utente.UtenteBean;
 import model.Utente.UtenteDAO;
@@ -75,6 +76,9 @@ public class RegisterServlet extends javax.servlet.http.HttpServlet {
 
             // Salvataggio nel DB
             utenteDAO.doSave(nuovoUtente);
+            UtenteBean utenteCompleto = utenteDAO.doRetrieveByEmail(nuovoUtente.getEmail());
+            HttpSession session = request.getSession(true);
+            session.setAttribute("utente", utenteCompleto);
 
             // Successo: mandiamo l'utente alla pagina di login con un messaggio positivo
             response.sendRedirect(request.getContextPath() + "/login.jsp?status=registrato");

@@ -71,10 +71,11 @@ CREATE TABLE Immagine(
 CREATE TABLE Ordine(
 	ID INT AUTO_INCREMENT PRIMARY KEY,
     Totale DECIMAL(10,2) NOT NULL,
-    Stato_Spedizione VARCHAR(40) NOT NULL,
+    Stato_Spedizione VARCHAR(40) NOT NULL DEFAULT 'In Lavorazione...',
     Data_Acquisto DATE NOT NULL,
     Utente_ID INT NOT NULL,
     Indirizzo_ID INT,
+    MetodoPagamento_ID INT,
     
     FOREIGN KEY (Utente_ID)
     REFERENCES Utente(ID_Utente)
@@ -84,6 +85,11 @@ CREATE TABLE Ordine(
 	FOREIGN KEY (Indirizzo_ID)
     REFERENCES Indirizzo(ID)
 		ON DELETE SET NULL -- se l'utente cancella indirizzo l'ordine non viene cancellato
+        ON UPDATE CASCADE,
+	
+    FOREIGN KEY (MetodoPagamento_ID)
+    REFERENCES MetodoPagamento(ID)
+		ON DELETE SET NULL
         ON UPDATE CASCADE
 );
 
@@ -93,7 +99,7 @@ CREATE TABLE Dettaglio_Ordine(
     Codice_Set INT,
     Quantita INT NOT NULL,
     Prezzo_Acquisto DECIMAL(10,2) NOT NULL,
-    IVA DECIMAL(4,2) NOT NULL,
+    IVA DECIMAL(4,2) NOT NULL DEFAULT 22.00,
     
     
     FOREIGN KEY (Ordine_ID)

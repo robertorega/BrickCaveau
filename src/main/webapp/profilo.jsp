@@ -14,7 +14,11 @@
     <main class="profilo-container">
         <h1>Area Personale</h1>
         <p>Benvenuto nel tuo profilo, <strong>${sessionScope.utente.nome}</strong>!</p>
-
+		<c:if test="${param.success == 'ordine_completato'}">
+		    <div class="ordine-completato">
+		        Ordine completato con successo! Grazie per il tuo acquisto su BrickCaveau.
+		    </div>
+		</c:if>
         <div class="profilo-grid">
             <%-- dati personali --%>
             <section class="card-profilo">

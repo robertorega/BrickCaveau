@@ -17,7 +17,7 @@ public class OrdineDAO {
 
 
     public synchronized void doCheckout(OrdineBean ordine, Carrello carrello) throws SQLException, RuntimeException {
-        String insertOrdineSQL = "INSERT INTO Ordine (Data_Ordine, Totale, Utente_ID, Indirizzo_ID, MetodoPagamento_ID) VALUES (?, ?, ?, ?, ?)";
+        String insertOrdineSQL = "INSERT INTO Ordine (Data_Acquisto, Totale, Utente_ID, Indirizzo_ID, MetodoPagamento_ID) VALUES (?, ?, ?, ?, ?)";
         String insertDettaglioSQL = "INSERT INTO Dettaglio_Ordine (Ordine_ID, Codice_Set, Quantita, Prezzo_Acquisto, IVA) VALUES (?, ?, ?, ?, ?)";
         String selectStockSQL = "SELECT Quantita_Magazzino FROM Set_Lego WHERE Codice_Set = ? FOR UPDATE";
         String updateStockSQL = "UPDATE Set_Lego SET Quantita_Magazzino = ? WHERE Codice_Set = ?";

@@ -55,17 +55,18 @@ public class UtenteDAO implements DAOInterface<UtenteBean, Integer> {
 
     @Override
     public void doSave(UtenteBean utente) throws SQLException {
-        String query = "INSERT INTO Utente (Nome, Cognome, Email, Password, Telefono, is_Admin) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Utente (ID_Utente, Nome, Cognome, Email, Password, Telefono, is_Admin) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         try (Connection con = ds.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
             
-            ps.setString(1, utente.getNome());
-            ps.setString(2, utente.getCognome());
-            ps.setString(3, utente.getEmail());
-            ps.setString(4, utente.getPassword()); // Stringa hash cifrata
-            ps.setString(5, utente.getTelefono());
-            ps.setBoolean(6, utente.is_Admin());
+        	ps.setInt(1, utente.getIdUtente());
+            ps.setString(2, utente.getNome());
+            ps.setString(3, utente.getCognome());
+            ps.setString(4, utente.getEmail());
+            ps.setString(5, utente.getPassword()); // Stringa hash cifrata
+            ps.setString(6, utente.getTelefono());
+            ps.setBoolean(7, utente.is_Admin());
             
             ps.executeUpdate();
         }

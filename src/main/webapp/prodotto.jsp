@@ -62,7 +62,7 @@
                         <p>${prodotto.descrizione}</p>
 
                         <c:if test="${prodotto.quantitaMagazzino > 0}">
-                            <form action="${pageContext.request.contextPath}/gestioneCarrelloServlet" method="POST" class="form-carrello">
+                            <form action="${pageContext.request.contextPath}/CarrelloServlet" method="POST" class="form-carrello">
                                 <input type="hidden" name="action" value="add">
                                 <input type="hidden" name="idSet" value="${prodotto.codiceSet}">
                                 
