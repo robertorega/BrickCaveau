@@ -4,7 +4,7 @@
 	<div class="footer-content">
 		<div class="footer-section">
 			<h3>BrickCaveau</h3>
-			<p>L'e-commerce per i collezionisti.</p>
+			<p>L'e-commerce per i collezionisti, dai collezionisti.</p>
 		</div>
 		
 		<div class="footer-link">
