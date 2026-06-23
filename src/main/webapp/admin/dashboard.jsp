@@ -80,9 +80,9 @@
                 
                 <form id="formFiltriOrdini" data-context="${pageContext.request.contextPath}" class="form-filtri" style="margin-bottom: 25px; display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap; background: #F8F9FA; padding: 15px; border-radius: 8px; border: 1px solid #E2E8F0;">
                 
-                    <div class="filtro-gruppo" style="margin-bottom: 0;">
-                        <label for="dataInizio" style="font-weight:bold; font-size:0.9rem;">Da data:</label>
-                        <input type="date" id="dataInizio" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    <div class="filtro-gruppo">
+                        <label for="dataInizio">Da data:</label>
+                        <input type="date" id="dataInizio">
                     </div>
                     
                     <div class="filtro-gruppo" style="margin-bottom: 0;">
@@ -91,13 +91,13 @@
                     </div>
 
                     <div class="filtro-gruppo" style="margin-bottom: 0;">
-                        <label for="utenteId" style="font-weight:bold; font-size:0.9rem;">ID Cliente (opzionale):</label>
-                        <input type="number" id="utenteId" placeholder="Es. 1" min="1" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                        <label for="utenteId">ID Cliente (opzionale):</label>
+                        <input type="number" id="utenteId" placeholder="Es. 1" min="1">
                     </div>
 
-                    <div style="display: flex; gap: 10px;">
+                    <div>
                         <button type="submit" class="btn-azione btn-primario">🔍 Filtra</button>
-                        <button type="button" id="btnResetOrdini" class="btn-azione btn-secondario" style="background-color: #64748B; color: white;">✖ Reset</button>
+                        <button type="button" id="btnResetOrdini" class="btn-azione btn-secondario">✖ Reset</button>
                     </div>
                 </form>
                 
